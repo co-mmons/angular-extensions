@@ -73,14 +73,18 @@ var FormHelper = /** @class */ (function () {
         if (!this.formGroupDirective) {
             return;
         }
-        for (var name_1 in this.formGroup.controls) {
-            var control = this.formGroup.controls[name_1];
+        var invalidControlNames = [];
+        for (var controlName in this.formGroup.controls) {
+            var control = this.formGroup.controls[controlName];
             var wasPristine = control.pristine;
             var wasUntouched = control.untouched;
             control.markAsDirty();
             control.markAsTouched();
             control.updateValueAndValidity();
-            if (control.valid) {
+            if (!control.valid && !invalidControlNames) {
+                invalidControlNames.push(controlName);
+            }
+            else if (control.valid) {
                 if (wasPristine) {
                     control.markAsPristine();
                 }
@@ -89,12 +93,14 @@ var FormHelper = /** @class */ (function () {
                 }
             }
         }
-        // try to put focus on first invalid control
         for (var _i = 0, _a = this.formGroupDirective.directives; _i < _a.length; _i++) {
             var control = _a[_i];
-            if (!control.valid) {
-                this.focusImpl(control);
-                break;
+            for (var _b = 0, invalidControlNames_1 = invalidControlNames; _b < invalidControlNames_1.length; _b++) {
+                var invalidControl = invalidControlNames_1[_b];
+                if (control.name == invalidControl) {
+                    this.focusImpl(invalidControl);
+                    break;
+                }
             }
         }
     };
