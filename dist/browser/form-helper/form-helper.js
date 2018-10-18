@@ -73,28 +73,29 @@ var FormHelper = /** @class */ (function () {
         if (!this.formGroupDirective) {
             return;
         }
-        var firstNotValidControl;
-        for (var _i = 0, _a = this.formGroupDirective.directives; _i < _a.length; _i++) {
-            var control = _a[_i];
-            var wasPristine = control.control.pristine;
-            var wasUntouched = control.control.untouched;
-            control.control.markAsDirty();
-            control.control.markAsTouched();
-            control.control.updateValueAndValidity();
-            if (!control.valid && !firstNotValidControl) {
-                firstNotValidControl = control;
-            }
-            else if (control.valid) {
+        for (var name_1 in this.formGroup.controls) {
+            var control = this.formGroup.controls[name_1];
+            var wasPristine = control.pristine;
+            var wasUntouched = control.untouched;
+            control.markAsDirty();
+            control.markAsTouched();
+            control.updateValueAndValidity();
+            if (control.valid) {
                 if (wasPristine) {
-                    control.control.markAsPristine();
+                    control.markAsPristine();
                 }
                 if (wasUntouched) {
-                    control.control.markAsUntouched();
+                    control.markAsUntouched();
                 }
             }
         }
-        if (firstNotValidControl) {
-            this.focusImpl(firstNotValidControl);
+        // try to put focus on first invalid control
+        for (var _i = 0, _a = this.formGroupDirective.directives; _i < _a.length; _i++) {
+            var control = _a[_i];
+            if (!control.valid) {
+                this.focusImpl(control);
+                break;
+            }
         }
     };
     FormHelper.prototype.focusImpl = function (control, scrollIntoView) {

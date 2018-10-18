@@ -1,5 +1,5 @@
 import {NgModule, Directive, ContentChildren, QueryList, ElementRef, Input, Optional} from "@angular/core";
-import {FormGroup, FormControlName, FormGroupDirective, NgForm, CheckboxControlValueAccessor} from "@angular/forms";
+import {FormGroup, FormControlName, FormGroupDirective, NgForm, CheckboxControlValueAccessor, AbstractControl} from "@angular/forms";
 
 @Directive({
     selector: "[ngx-form-helper],[ngxFormHelper]",
@@ -66,34 +66,35 @@ export class FormHelper {
             return;
         }
 
-        let firstNotValidControl;
+        for (let name in this.formGroup.controls) {
+            
+            let control = this.formGroup.controls[name];
 
-        for (let control of this.formGroupDirective.directives) {
+            let wasPristine = control.pristine;
+            let wasUntouched = control.untouched;
 
-            let wasPristine = control.control.pristine;
-            let wasUntouched = control.control.untouched;
+            control.markAsDirty();
+            control.markAsTouched();
+            control.updateValueAndValidity();
 
-            control.control.markAsDirty();
-            control.control.markAsTouched();
-            control.control.updateValueAndValidity();
-
-            if (!control.valid && !firstNotValidControl) {
-                firstNotValidControl = control;
-
-            } else if (control.valid) {
+            if (control.valid) {
 
                 if (wasPristine) {
-                    control.control.markAsPristine();
+                    control.markAsPristine();
                 }
 
                 if (wasUntouched) {
-                    control.control.markAsUntouched();
+                    control.markAsUntouched();
                 }
             }
         }
 
-        if (firstNotValidControl) {
-            this.focusImpl(firstNotValidControl);
+        // try to put focus on first invalid control
+        for (let control of this.formGroupDirective.directives) {
+            if (!control.valid) {
+                this.focusImpl(control);
+                break;
+            }
         }
     }
 
