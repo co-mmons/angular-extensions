@@ -78,7 +78,7 @@ export class FormHelper {
             control.markAsTouched();
             control.updateValueAndValidity();
 
-            if (!control.valid && !invalidControlNames) {
+            if (!control.valid) {
                 invalidControlNames.push(controlName);
 
             } else if (control.valid) {
@@ -93,10 +93,10 @@ export class FormHelper {
             }
         }
 
-        for (let control of this.formGroupDirective.directives) {
-            for (let invalidControl of invalidControlNames) {
+        for (let invalidControl of invalidControlNames) {
+            for (let control of this.formGroupDirective.directives) {
                 if (control.name == invalidControl) {
-                    this.focusImpl(invalidControl);
+                    this.focusImpl(control);
                     break;
                 }
             }
