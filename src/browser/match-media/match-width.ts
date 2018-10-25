@@ -54,8 +54,8 @@ export class IfMatchGreaterWidthDirective {
     constructor(private template: TemplateRef<any>, private viewContainer: ViewContainerRef) {
     }
 
-    @Input("cssIfMatchGreaterWidth")
-    set cssIfMatchGreaterWidth(minWidth: string) {
+    @Input()
+    set ifMatchGreaterWidth(minWidth: string) {
 
         let matches = window.matchMedia(buildMediaQuery("gte", minWidth)).matches;
 
@@ -76,7 +76,7 @@ export class IfMatchLesserWidthDirective {
     }
 
     @Input()
-    set cssIfMatchLesserWidth(maxWidth: string) {
+    set ifMatchLesserWidth(maxWidth: string) {
 
         let matches = window.matchMedia(buildMediaQuery("lte", maxWidth)).matches;
 

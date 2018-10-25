@@ -73,7 +73,7 @@ var IfMatchGreaterWidthDirective = /** @class */ (function () {
         this.template = template;
         this.viewContainer = viewContainer;
     }
-    Object.defineProperty(IfMatchGreaterWidthDirective.prototype, "cssIfMatchGreaterWidth", {
+    Object.defineProperty(IfMatchGreaterWidthDirective.prototype, "ifMatchGreaterWidth", {
         set: function (minWidth) {
             var matches = window.matchMedia(buildMediaQuery("gte", minWidth)).matches;
             if (matches) {
@@ -87,10 +87,10 @@ var IfMatchGreaterWidthDirective = /** @class */ (function () {
         configurable: true
     });
     __decorate([
-        Input("cssIfMatchGreaterWidth"),
+        Input(),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
-    ], IfMatchGreaterWidthDirective.prototype, "cssIfMatchGreaterWidth", null);
+    ], IfMatchGreaterWidthDirective.prototype, "ifMatchGreaterWidth", null);
     IfMatchGreaterWidthDirective = __decorate([
         Directive({
             selector: "[ifMatchGreaterWidth]"
@@ -105,7 +105,7 @@ var IfMatchLesserWidthDirective = /** @class */ (function () {
         this.template = template;
         this.viewContainer = viewContainer;
     }
-    Object.defineProperty(IfMatchLesserWidthDirective.prototype, "cssIfMatchLesserWidth", {
+    Object.defineProperty(IfMatchLesserWidthDirective.prototype, "ifMatchLesserWidth", {
         set: function (maxWidth) {
             var matches = window.matchMedia(buildMediaQuery("lte", maxWidth)).matches;
             if (matches) {
@@ -122,7 +122,7 @@ var IfMatchLesserWidthDirective = /** @class */ (function () {
         Input(),
         __metadata("design:type", String),
         __metadata("design:paramtypes", [String])
-    ], IfMatchLesserWidthDirective.prototype, "cssIfMatchLesserWidth", null);
+    ], IfMatchLesserWidthDirective.prototype, "ifMatchLesserWidth", null);
     IfMatchLesserWidthDirective = __decorate([
         Directive({
             selector: "[ifMatchLesserWidth]"
