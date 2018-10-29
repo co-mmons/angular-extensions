@@ -13,7 +13,7 @@ var CanDeactivateGuard = /** @class */ (function () {
     }
     CanDeactivateGuard.prototype.canDeactivate = function (component, currentRoute, currentState, nextState) {
         if (component.canDeactivate) {
-            return component.canDeactivate(currentRoute, currentState, nextState);
+            return component.canDeactivate.call(component, currentRoute, currentState, nextState);
         }
         return true;
     };
