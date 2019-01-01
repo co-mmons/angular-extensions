@@ -4,7 +4,6 @@ import {SafeHtmlPipe} from "./safe-html-pipe";
 import {SafeUrlPipe} from "./safe-url-pipe";
 
 @NgModule({
-    imports: [BrowserModule],
     declarations: [SafeHtmlPipe, SafeUrlPipe],
     exports: [SafeHtmlPipe, SafeUrlPipe, BrowserModule]
 })

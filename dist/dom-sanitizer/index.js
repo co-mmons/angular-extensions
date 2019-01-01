@@ -13,7 +13,6 @@ var DomSanitizerModule = /** @class */ (function () {
     }
     DomSanitizerModule = __decorate([
         NgModule({
-            imports: [BrowserModule],
             declarations: [SafeHtmlPipe, SafeUrlPipe],
             exports: [SafeHtmlPipe, SafeUrlPipe, BrowserModule]
         })
