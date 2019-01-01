@@ -5,7 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
 import { SafeHtmlPipe } from "./safe-html-pipe";
 import { SafeUrlPipe } from "./safe-url-pipe";
 var DomSanitizerModule = /** @class */ (function () {
@@ -14,7 +13,7 @@ var DomSanitizerModule = /** @class */ (function () {
     DomSanitizerModule = __decorate([
         NgModule({
             declarations: [SafeHtmlPipe, SafeUrlPipe],
-            exports: [SafeHtmlPipe, SafeUrlPipe, BrowserModule]
+            exports: [SafeHtmlPipe, SafeUrlPipe]
         })
     ], DomSanitizerModule);
     return DomSanitizerModule;
