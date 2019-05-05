@@ -8,7 +8,7 @@ import { Directive, forwardRef, NgModule } from "@angular/core";
 import { NG_VALIDATORS } from "@angular/forms";
 import { MessageRef } from "@co.mmons/js-intl";
 var urlValidatorRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/i;
-export var urlValidator = {
+export var urlValidatorProvider = {
     provide: NG_VALIDATORS,
     useExisting: forwardRef(function () { return UrlValidator; }),
     multi: true
@@ -16,6 +16,7 @@ export var urlValidator = {
 var UrlValidator = /** @class */ (function () {
     function UrlValidator() {
     }
+    UrlValidator_1 = UrlValidator;
     UrlValidator.validate = function (control) {
         var value = control.value;
         if (urlValidatorRegex.test(value)) {
@@ -26,12 +27,13 @@ var UrlValidator = /** @class */ (function () {
         };
     };
     UrlValidator.prototype.validate = function (c) {
-        return undefined;
+        return UrlValidator_1.validate(c);
     };
-    UrlValidator = __decorate([
+    var UrlValidator_1;
+    UrlValidator = UrlValidator_1 = __decorate([
         Directive({
             selector: '[url][formControlName],[url][formControl],[url][ngModel]',
-            providers: [urlValidator]
+            providers: [urlValidatorProvider]
         })
     ], UrlValidator);
     return UrlValidator;

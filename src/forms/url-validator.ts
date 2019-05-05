@@ -4,7 +4,7 @@ import {MessageRef} from "@co.mmons/js-intl";
 
 const urlValidatorRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/i;
 
-export const urlValidator: any = {
+export const urlValidatorProvider: any = {
     provide: NG_VALIDATORS,
     useExisting: forwardRef(() => UrlValidator),
     multi: true
@@ -12,7 +12,7 @@ export const urlValidator: any = {
 
 @Directive({
     selector: '[url][formControlName],[url][formControl],[url][ngModel]',
-    providers: [urlValidator]
+    providers: [urlValidatorProvider]
 })
 export class UrlValidator implements Validator {
 
@@ -30,7 +30,7 @@ export class UrlValidator implements Validator {
     }
 
     validate(c: AbstractControl): ValidationErrors | null {
-        return undefined;
+        return UrlValidator.validate(c);
     }
 
 }
