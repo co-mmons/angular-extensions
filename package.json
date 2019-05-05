@@ -9,6 +9,7 @@
     "install": "node-utils-npm-install-dist"
   },
   "dependencies": {
+    "@co.mmons/js-intl": "git+https://github.com/co-mmons/js-intl.git",
     "@co.mmons/js-utils": "git+https://github.com/co-mmons/js-utils.git",
     "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git"
   },
@@ -27,6 +28,7 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
+    "bignumber.js": "^8.1.1",
     "typescript": "^2.9.0"
   },
   "sideEffects": false
