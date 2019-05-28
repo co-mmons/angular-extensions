@@ -16,16 +16,16 @@ export function updateValueAndValidity(controlOrControls, opts) {
             }
         }
     }
-    for (var _b = 0, controls_1 = controls; _b < controls_1.length; _b++) {
+    CONTROLS: for (var _b = 0, controls_1 = controls; _b < controls_1.length; _b++) {
         var control = controls_1[_b];
         if (!control) {
-            return;
+            continue;
         }
         if (opts && opts.ommit) {
             for (var _c = 0, _d = opts.ommit; _c < _d.length; _c++) {
                 var c = _d[_c];
                 if (c === control) {
-                    return;
+                    continue CONTROLS;
                 }
             }
         }

@@ -17,16 +17,16 @@ export function updateValueAndValidity(controlOrControls: AbstractControl | Abst
         }
     }
 
-    for (const control of controls) {
+    CONTROLS: for (const control of controls) {
 
         if (!control) {
-            return;
+            continue;
         }
 
         if (opts && opts.ommit) {
             for (const c of opts.ommit) {
                 if (c === control) {
-                    return;
+                    continue CONTROLS;
                 }
             }
         }
