@@ -31,7 +31,7 @@ export function updateValueAndValidity(controlOrControls: AbstractControl | Abst
             }
         }
 
-        if (!opts.onlySelf) {
+        if (!opts || !opts.onlySelf) {
             if (control instanceof FormGroup) {
                 const group = (control as FormGroup);
 

@@ -29,7 +29,7 @@ export function updateValueAndValidity(controlOrControls, opts) {
                 }
             }
         }
-        if (!opts.onlySelf) {
+        if (!opts || !opts.onlySelf) {
             if (control instanceof FormGroup) {
                 var group = control;
                 for (var field in group.controls) {
