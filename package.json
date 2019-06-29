@@ -14,22 +14,19 @@
     "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git"
   },
   "peerDependencies": {
-    "@angular/common": "^7.0.1",
-    "@angular/compiler": "^7.0.1",
-    "@angular/compiler-cli": "^7.0.1",
-    "@angular/core": "^7.0.1",
-    "@angular/forms": "^7.0.1",
-    "@angular/http": "^7.0.1",
-    "@angular/platform-browser": "^7.0.1",
-    "@angular/platform-browser-dynamic": "^7.0.1",
-    "@angular/platform-server": "^7.0.1",
-    "@angular/router": "^7.0.1",
-    "rxjs": "^6.2.1",
-    "zone.js": "^0.8.26"
+    "@angular/common": "^8.0.3",
+    "@angular/compiler": "^8.0.3",
+    "@angular/compiler-cli": "^8.0.3",
+    "@angular/core": "^8.0.3",
+    "@angular/forms": "^8.0.3",
+    "@angular/platform-browser": "^8.0.3",
+    "@angular/router": "^8.0.3",
+    "rxjs": "^6.5.2",
+    "zone.js": "^0.9.1"
   },
   "devDependencies": {
-    "bignumber.js": "^8.1.1",
-    "typescript": "^2.9.0"
+    "bignumber.js": "^9.0.0",
+    "typescript": "~3.4.0"
   },
   "sideEffects": false
 }
