@@ -1,9 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+import * as tslib_1 from "tslib";
 import { Directive, forwardRef, NgModule } from "@angular/core";
 import { NG_VALIDATORS } from "@angular/forms";
 import { MessageRef } from "@co.mmons/js-intl";
@@ -30,7 +25,7 @@ var UrlValidator = /** @class */ (function () {
         return UrlValidator_1.validate(c);
     };
     var UrlValidator_1;
-    UrlValidator = UrlValidator_1 = __decorate([
+    UrlValidator = UrlValidator_1 = tslib_1.__decorate([
         Directive({
             selector: '[url][formControlName],[url][formControl],[url][ngModel]',
             providers: [urlValidatorProvider]
@@ -42,7 +37,7 @@ export { UrlValidator };
 var UrlValidatorModule = /** @class */ (function () {
     function UrlValidatorModule() {
     }
-    UrlValidatorModule = __decorate([
+    UrlValidatorModule = tslib_1.__decorate([
         NgModule({
             declarations: [UrlValidator],
             exports: [UrlValidator]

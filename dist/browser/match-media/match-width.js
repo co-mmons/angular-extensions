@@ -1,22 +1,4 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
+import * as tslib_1 from "tslib";
 import { Pipe, Directive, TemplateRef, ViewContainerRef, Input } from "@angular/core";
 import { ScreenSizeMinWidth } from "./screen-size";
 import { MatchMediaPipe } from "./match-media";
@@ -35,14 +17,14 @@ function buildMediaQuery(comparison, input) {
     return "(" + (comparison == "gte" ? "min-width" : "max-width") + ": " + size + "px)";
 }
 var MatchWidthGreaterPipe = /** @class */ (function (_super) {
-    __extends(MatchWidthGreaterPipe, _super);
+    tslib_1.__extends(MatchWidthGreaterPipe, _super);
     function MatchWidthGreaterPipe() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MatchWidthGreaterPipe.prototype.prepareQuery = function (query) {
         return buildMediaQuery("gte", query);
     };
-    MatchWidthGreaterPipe = __decorate([
+    MatchWidthGreaterPipe = tslib_1.__decorate([
         Pipe({
             name: "matchGreaterWidth",
             pure: false
@@ -52,14 +34,14 @@ var MatchWidthGreaterPipe = /** @class */ (function (_super) {
 }(MatchMediaPipe));
 export { MatchWidthGreaterPipe };
 var MatchLesserWidthPipe = /** @class */ (function (_super) {
-    __extends(MatchLesserWidthPipe, _super);
+    tslib_1.__extends(MatchLesserWidthPipe, _super);
     function MatchLesserWidthPipe() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     MatchLesserWidthPipe.prototype.prepareQuery = function (query) {
         return buildMediaQuery("lte", query);
     };
-    MatchLesserWidthPipe = __decorate([
+    MatchLesserWidthPipe = tslib_1.__decorate([
         Pipe({
             name: "matchLesserWidth",
             pure: false
@@ -86,16 +68,16 @@ var IfMatchGreaterWidthDirective = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    __decorate([
+    tslib_1.__decorate([
         Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
     ], IfMatchGreaterWidthDirective.prototype, "ifMatchGreaterWidth", null);
-    IfMatchGreaterWidthDirective = __decorate([
+    IfMatchGreaterWidthDirective = tslib_1.__decorate([
         Directive({
             selector: "[ifMatchGreaterWidth]"
         }),
-        __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
     ], IfMatchGreaterWidthDirective);
     return IfMatchGreaterWidthDirective;
 }());
@@ -118,16 +100,16 @@ var IfMatchLesserWidthDirective = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    __decorate([
+    tslib_1.__decorate([
         Input(),
-        __metadata("design:type", String),
-        __metadata("design:paramtypes", [String])
+        tslib_1.__metadata("design:type", String),
+        tslib_1.__metadata("design:paramtypes", [String])
     ], IfMatchLesserWidthDirective.prototype, "ifMatchLesserWidth", null);
-    IfMatchLesserWidthDirective = __decorate([
+    IfMatchLesserWidthDirective = tslib_1.__decorate([
         Directive({
             selector: "[ifMatchLesserWidth]"
         }),
-        __metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
     ], IfMatchLesserWidthDirective);
     return IfMatchLesserWidthDirective;
 }());

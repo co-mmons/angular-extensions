@@ -1,15 +1,4 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
+import * as tslib_1 from "tslib";
 import { NgModule, Directive, ContentChildren, QueryList, ElementRef, Input, Optional } from "@angular/core";
 import { FormControlName, FormGroupDirective, NgForm } from "@angular/forms";
 var FormHelper = /** @class */ (function () {
@@ -128,27 +117,27 @@ var FormHelper = /** @class */ (function () {
         if (scrollIntoView === void 0) { scrollIntoView = true; }
         this.focusImpl(formControlName, scrollIntoView);
     };
-    __decorate([
+    tslib_1.__decorate([
         Input(),
-        __metadata("design:type", Boolean),
-        __metadata("design:paramtypes", [Boolean])
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
     ], FormHelper.prototype, "readonly", null);
-    __decorate([
+    tslib_1.__decorate([
         Input(),
-        __metadata("design:type", Boolean),
-        __metadata("design:paramtypes", [Boolean])
+        tslib_1.__metadata("design:type", Boolean),
+        tslib_1.__metadata("design:paramtypes", [Boolean])
     ], FormHelper.prototype, "busy", null);
-    __decorate([
+    tslib_1.__decorate([
         ContentChildren(FormControlName, { descendants: true }),
-        __metadata("design:type", QueryList)
+        tslib_1.__metadata("design:type", QueryList)
     ], FormHelper.prototype, "contentControls", void 0);
-    FormHelper = __decorate([
+    FormHelper = tslib_1.__decorate([
         Directive({
             selector: "[ngx-form-helper],[ngxFormHelper]",
             exportAs: "ngxFormHelper"
         }),
-        __param(1, Optional()), __param(2, Optional()),
-        __metadata("design:paramtypes", [ElementRef, NgForm, FormGroupDirective])
+        tslib_1.__param(1, Optional()), tslib_1.__param(2, Optional()),
+        tslib_1.__metadata("design:paramtypes", [ElementRef, NgForm, FormGroupDirective])
     ], FormHelper);
     return FormHelper;
 }());
@@ -156,7 +145,7 @@ export { FormHelper };
 var FormHelperModule = /** @class */ (function () {
     function FormHelperModule() {
     }
-    FormHelperModule = __decorate([
+    FormHelperModule = tslib_1.__decorate([
         NgModule({
             declarations: [FormHelper],
             bootstrap: [],
