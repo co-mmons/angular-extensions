@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "ngc",
+    "intl:forms": "js-intl-google-sheet-importer --output-path i18n/forms --output-type json --document 1lTpcwU0ubFX7bJFCt8zeHYrwbDaoxNcjzpjUVdmiY_w --worksheet 1 --filterTags angular-extensions-forms",
     "install": "node-utils-npm-install-dist"
   },
   "dependencies": {
