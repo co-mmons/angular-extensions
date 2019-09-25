@@ -9,11 +9,6 @@
     "intl:forms": "js-intl-google-sheet-importer --output-path i18n/forms --output-type json --document 1lTpcwU0ubFX7bJFCt8zeHYrwbDaoxNcjzpjUVdmiY_w --worksheet 1 --filterTags angular-extensions-forms",
     "install": "node-utils-npm-install-dist"
   },
-  "dependencies": {
-    "@co.mmons/js-intl": "git+https://github.com/co-mmons/js-intl.git",
-    "@co.mmons/js-utils": "git+https://github.com/co-mmons/js-utils.git",
-    "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git"
-  },
   "peerDependencies": {
     "@angular/common": "^8.0.3",
     "@angular/compiler": "^8.0.3",
@@ -22,10 +17,13 @@
     "@angular/forms": "^8.0.3",
     "@angular/platform-browser": "^8.0.3",
     "@angular/router": "^8.0.3",
+    "@co.mmons/js-intl": "git+https://github.com/co-mmons/js-intl.git",
+    "@co.mmons/js-utils": "git+https://github.com/co-mmons/js-utils.git",
     "rxjs": "^6.5.2",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
+    "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git",
     "bignumber.js": "^9.0.0",
     "typescript": "~3.4.0"
   },
