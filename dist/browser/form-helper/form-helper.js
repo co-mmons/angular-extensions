@@ -1,70 +1,56 @@
 import * as tslib_1 from "tslib";
 import { NgModule, Directive, ContentChildren, QueryList, ElementRef, Input, Optional } from "@angular/core";
 import { FormControlName, FormGroupDirective, NgForm } from "@angular/forms";
-var FormHelper = /** @class */ (function () {
-    function FormHelper(element, ngForm, formGroupDirective) {
+let FormHelper = class FormHelper {
+    constructor(element, ngForm, formGroupDirective) {
         this.element = element;
         this.ngForm = ngForm;
         this.formGroupDirective = formGroupDirective;
     }
-    Object.defineProperty(FormHelper.prototype, "readonly", {
-        get: function () {
-            return this.element.nativeElement.hasAttribute("readonly");
-        },
-        set: function (readonly) {
-            if (readonly) {
-                this.element.nativeElement.setAttribute("readonly", "");
-            }
-            else {
-                this.element.nativeElement.removeAttribute("readonly");
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    FormHelper.prototype.markAsReadonly = function () {
+    get readonly() {
+        return this.element.nativeElement.hasAttribute("readonly");
+    }
+    set readonly(readonly) {
+        if (readonly) {
+            this.element.nativeElement.setAttribute("readonly", "");
+        }
+        else {
+            this.element.nativeElement.removeAttribute("readonly");
+        }
+    }
+    markAsReadonly() {
         this.readonly = true;
-    };
-    Object.defineProperty(FormHelper.prototype, "busy", {
-        get: function () {
-            return this.element.nativeElement.hasAttribute("busy");
-        },
-        set: function (busy) {
-            if (busy) {
-                this.element.nativeElement.setAttribute("busy", "");
-            }
-            else {
-                this.element.nativeElement.removeAttribute("busy");
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    FormHelper.prototype.markAsBusy = function () {
+    }
+    get busy() {
+        return this.element.nativeElement.hasAttribute("busy");
+    }
+    set busy(busy) {
+        if (busy) {
+            this.element.nativeElement.setAttribute("busy", "");
+        }
+        else {
+            this.element.nativeElement.removeAttribute("busy");
+        }
+    }
+    markAsBusy() {
         this.busy = true;
-    };
-    FormHelper.prototype.formControlName = function (name) {
-        for (var _i = 0, _a = this.contentControls.toArray(); _i < _a.length; _i++) {
-            var a = _a[_i];
+    }
+    formControlName(name) {
+        for (let a of this.contentControls.toArray()) {
             if (a.name == name) {
                 return a;
             }
         }
-    };
-    Object.defineProperty(FormHelper.prototype, "formGroup", {
-        get: function () {
-            return this.formGroupDirective ? this.formGroupDirective.form : undefined;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    FormHelper.prototype.validateAll = function (markAs) {
-        if (markAs === void 0) { markAs = "touched"; }
+    }
+    get formGroup() {
+        return this.formGroupDirective ? this.formGroupDirective.form : undefined;
+    }
+    validateAll(markAs = "touched") {
         if (!this.formGroupDirective) {
             return;
         }
-        for (var controlName in this.formGroup.controls) {
-            var control = this.formGroup.controls[controlName];
+        for (let controlName in this.formGroup.controls) {
+            let control = this.formGroup.controls[controlName];
             if (markAs == "touched") {
                 control.markAsTouched();
             }
@@ -73,28 +59,25 @@ var FormHelper = /** @class */ (function () {
             }
             control.updateValueAndValidity();
         }
-        for (var _i = 0, _a = this.contentControls.toArray(); _i < _a.length; _i++) {
-            var control = _a[_i];
+        for (let control of this.contentControls.toArray()) {
             if (!control.valid) {
                 this.focusImpl(control);
                 break;
             }
         }
-    };
-    FormHelper.prototype.focusImpl = function (control, scrollIntoView) {
-        if (scrollIntoView === void 0) { scrollIntoView = true; }
+    }
+    focusImpl(control, scrollIntoView = true) {
         if (typeof control == "string" && this.formGroupDirective) {
-            for (var _i = 0, _a = this.formGroupDirective.directives; _i < _a.length; _i++) {
-                var c = _a[_i];
+            for (let c of this.formGroupDirective.directives) {
                 if (c.name == control) {
                     control = c;
                     break;
                 }
             }
         }
-        var elementToScroll;
+        let elementToScroll;
         if (control instanceof FormControlName) {
-            var element = this.element.nativeElement.querySelector("[formcontrolname=" + control.name + "]");
+            let element = this.element.nativeElement.querySelector("[formcontrolname=" + control.name + "]");
             if (element) {
                 elementToScroll = element;
                 element.focus();
@@ -112,47 +95,42 @@ var FormHelper = /** @class */ (function () {
         if (scrollIntoView && elementToScroll) {
             elementToScroll.scrollIntoView();
         }
-    };
-    FormHelper.prototype.focus = function (formControlName, scrollIntoView) {
-        if (scrollIntoView === void 0) { scrollIntoView = true; }
-        this.focusImpl(formControlName, scrollIntoView);
-    };
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], FormHelper.prototype, "readonly", null);
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", Boolean),
-        tslib_1.__metadata("design:paramtypes", [Boolean])
-    ], FormHelper.prototype, "busy", null);
-    tslib_1.__decorate([
-        ContentChildren(FormControlName, { descendants: true }),
-        tslib_1.__metadata("design:type", QueryList)
-    ], FormHelper.prototype, "contentControls", void 0);
-    FormHelper = tslib_1.__decorate([
-        Directive({
-            selector: "[ngx-form-helper],[ngxFormHelper]",
-            exportAs: "ngxFormHelper"
-        }),
-        tslib_1.__param(1, Optional()), tslib_1.__param(2, Optional()),
-        tslib_1.__metadata("design:paramtypes", [ElementRef, NgForm, FormGroupDirective])
-    ], FormHelper);
-    return FormHelper;
-}());
-export { FormHelper };
-var FormHelperModule = /** @class */ (function () {
-    function FormHelperModule() {
     }
-    FormHelperModule = tslib_1.__decorate([
-        NgModule({
-            declarations: [FormHelper],
-            bootstrap: [],
-            exports: [FormHelper]
-        })
-    ], FormHelperModule);
-    return FormHelperModule;
-}());
+    focus(formControlName, scrollIntoView = true) {
+        this.focusImpl(formControlName, scrollIntoView);
+    }
+};
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], FormHelper.prototype, "readonly", null);
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", Boolean),
+    tslib_1.__metadata("design:paramtypes", [Boolean])
+], FormHelper.prototype, "busy", null);
+tslib_1.__decorate([
+    ContentChildren(FormControlName, { descendants: true }),
+    tslib_1.__metadata("design:type", QueryList)
+], FormHelper.prototype, "contentControls", void 0);
+FormHelper = tslib_1.__decorate([
+    Directive({
+        selector: "[ngx-form-helper],[ngxFormHelper]",
+        exportAs: "ngxFormHelper"
+    }),
+    tslib_1.__param(1, Optional()), tslib_1.__param(2, Optional()),
+    tslib_1.__metadata("design:paramtypes", [ElementRef, NgForm, FormGroupDirective])
+], FormHelper);
+export { FormHelper };
+let FormHelperModule = class FormHelperModule {
+};
+FormHelperModule = tslib_1.__decorate([
+    NgModule({
+        declarations: [FormHelper],
+        bootstrap: [],
+        exports: [FormHelper]
+    })
+], FormHelperModule);
 export { FormHelperModule };
 //# sourceMappingURL=form-helper.js.map

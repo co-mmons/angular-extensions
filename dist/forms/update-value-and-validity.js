@@ -1,6 +1,6 @@
 import { AbstractControl, FormArray, FormGroup } from "@angular/forms";
 export function updateValueAndValidity(controlOrControls, opts) {
-    var controls;
+    let controls;
     if (Array.isArray(controlOrControls)) {
         controls = controlOrControls;
     }
@@ -9,21 +9,18 @@ export function updateValueAndValidity(controlOrControls, opts) {
     }
     else if (controlOrControls) {
         controls = [];
-        for (var _i = 0, _a = Object.keys(controlOrControls); _i < _a.length; _i++) {
-            var k = _a[_i];
+        for (const k of Object.keys(controlOrControls)) {
             if (controlOrControls[k]) {
                 controls.push(controlOrControls[k]);
             }
         }
     }
-    CONTROLS: for (var _b = 0, controls_1 = controls; _b < controls_1.length; _b++) {
-        var control = controls_1[_b];
+    CONTROLS: for (const control of controls) {
         if (!control) {
             continue;
         }
         if (opts && opts.ommit) {
-            for (var _c = 0, _d = opts.ommit; _c < _d.length; _c++) {
-                var c = _d[_c];
+            for (const c of opts.ommit) {
                 if (c === control) {
                     continue CONTROLS;
                 }
@@ -31,15 +28,15 @@ export function updateValueAndValidity(controlOrControls, opts) {
         }
         if (!opts || !opts.onlySelf) {
             if (control instanceof FormGroup) {
-                var group = control;
-                for (var field in group.controls) {
+                const group = control;
+                for (const field in group.controls) {
                     updateValueAndValidity(group.controls[field], opts);
                 }
             }
             else if (control instanceof FormArray) {
-                var group = control;
-                for (var field in group.controls) {
-                    var c = group.controls[field];
+                const group = control;
+                for (const field in group.controls) {
+                    const c = group.controls[field];
                     updateValueAndValidity(group.controls[field], opts);
                 }
             }

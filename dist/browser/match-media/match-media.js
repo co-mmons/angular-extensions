@@ -1,63 +1,55 @@
 import * as tslib_1 from "tslib";
 import { Pipe, Directive, TemplateRef, ViewContainerRef, Input } from "@angular/core";
-var MatchMediaPipe = /** @class */ (function () {
-    function MatchMediaPipe() {
-    }
-    MatchMediaPipe.prototype.transform = function (query) {
+let MatchMediaPipe = class MatchMediaPipe {
+    transform(query) {
         if (query != this.query) {
             this.destroy();
             this.queryList = window.matchMedia(this.prepareQuery(query));
         }
         return this.queryList.matches;
-    };
-    MatchMediaPipe.prototype.prepareQuery = function (inputQuery) {
+    }
+    prepareQuery(inputQuery) {
         return inputQuery;
-    };
-    MatchMediaPipe.prototype.destroy = function () {
+    }
+    destroy() {
         this.queryList = null;
-    };
-    MatchMediaPipe.prototype.ngOnDestroy = function () {
+    }
+    ngOnDestroy() {
         this.destroy;
-    };
-    MatchMediaPipe = tslib_1.__decorate([
-        Pipe({
-            name: "matchMedia",
-            pure: false
-        })
-    ], MatchMediaPipe);
-    return MatchMediaPipe;
-}());
+    }
+};
+MatchMediaPipe = tslib_1.__decorate([
+    Pipe({
+        name: "matchMedia",
+        pure: false
+    })
+], MatchMediaPipe);
 export { MatchMediaPipe };
-var IfMatchMediaDirective = /** @class */ (function () {
-    function IfMatchMediaDirective(template, viewContainer) {
+let IfMatchMediaDirective = class IfMatchMediaDirective {
+    constructor(template, viewContainer) {
         this.template = template;
         this.viewContainer = viewContainer;
     }
-    Object.defineProperty(IfMatchMediaDirective.prototype, "ifMatchMedia", {
-        set: function (query) {
-            var matches = window.matchMedia(query).matches;
-            if (matches) {
-                this.viewContainer.createEmbeddedView(this.template);
-            }
-            else if (!matches) {
-                this.viewContainer.clear();
-            }
-        },
-        enumerable: true,
-        configurable: true
-    });
-    tslib_1.__decorate([
-        Input(),
-        tslib_1.__metadata("design:type", String),
-        tslib_1.__metadata("design:paramtypes", [String])
-    ], IfMatchMediaDirective.prototype, "ifMatchMedia", null);
-    IfMatchMediaDirective = tslib_1.__decorate([
-        Directive({
-            selector: "[ifMatchMedia]"
-        }),
-        tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
-    ], IfMatchMediaDirective);
-    return IfMatchMediaDirective;
-}());
+    set ifMatchMedia(query) {
+        let matches = window.matchMedia(query).matches;
+        if (matches) {
+            this.viewContainer.createEmbeddedView(this.template);
+        }
+        else if (!matches) {
+            this.viewContainer.clear();
+        }
+    }
+};
+tslib_1.__decorate([
+    Input(),
+    tslib_1.__metadata("design:type", String),
+    tslib_1.__metadata("design:paramtypes", [String])
+], IfMatchMediaDirective.prototype, "ifMatchMedia", null);
+IfMatchMediaDirective = tslib_1.__decorate([
+    Directive({
+        selector: "[ifMatchMedia]"
+    }),
+    tslib_1.__metadata("design:paramtypes", [TemplateRef, ViewContainerRef])
+], IfMatchMediaDirective);
 export { IfMatchMediaDirective };
 //# sourceMappingURL=match-media.js.map
