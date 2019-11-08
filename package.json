@@ -31,8 +31,5 @@
     "ng-packagr": "^5.7.1",
     "typescript": "~3.4.0"
   },
-  "sideEffects": false,
-  "intlBundleItems": [
-    {"path": "./src/forms/i18n/{{LOCALE}}.json", "type": "message", "namespace": "@co.mmons/angular-extensions/forms"}
-  ]
+  "sideEffects": false
 }
