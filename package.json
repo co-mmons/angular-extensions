@@ -1,12 +1,14 @@
 {
   "name": "@co.mmons/angular-extensions",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "co.mmons",
   "private": false,
   "license": "MIT",
   "scripts": {
-    "build": "ngc",
-    "intl:forms": "js-intl-google-sheet-importer --output-path i18n/forms --output-type json --document 1lTpcwU0ubFX7bJFCt8zeHYrwbDaoxNcjzpjUVdmiY_w --worksheet 1 --filterTags angular-extensions-forms",
+    "build": "rm -Rf dist/**/* && npx ts-node --project build/tsconfig.json build/build.ts",
+    "build:module": "npx ts-node --project build/tsconfig.json build/build.ts",
+    "intl": "npm run intl:forms",
+    "intl:forms": "js-intl-google-sheet-importer --output-path src/forms/i18n --output-type json --document 1lTpcwU0ubFX7bJFCt8zeHYrwbDaoxNcjzpjUVdmiY_w --worksheet 1 --filterTags angular-extensions-forms",
     "install": "node-utils-npm-install-dist"
   },
   "peerDependencies": {
@@ -24,8 +26,13 @@
   },
   "devDependencies": {
     "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git",
+    "@types/yargs": "^13.0.3",
     "bignumber.js": "^9.0.0",
+    "ng-packagr": "^5.7.1",
     "typescript": "~3.4.0"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "intlBundleItems": [
+    {"path": "src/forms/i18n/{{LOCALE}}.json", "type": "message", "namespace": "@co.mmons/angular-extensions/forms"}
+  ]
 }

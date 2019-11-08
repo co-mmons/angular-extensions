@@ -1,0 +1,13 @@
+{
+    "$schema": "../../node_modules/ng-packagr/package.schema.json",
+    "name": "@co.mmons/angular-extensions/dom-sanitizer",
+    "sideEffects": false,
+    "ngPackage": {
+        "dest": "../../dist/dom-sanitizer",
+        "deleteDestPath": false,
+        "lib": {
+            "entryFile": "index.ts",
+            "flatModuleFile": "commons-angular-extensions-dom-sanitizer"
+        }
+    }
+}

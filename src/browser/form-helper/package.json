@@ -1,0 +1,13 @@
+{
+    "$schema": "../../node_modules/ng-packagr/package.schema.json",
+    "name": "@co.mmons/angular-extensions/browser/form-helper",
+    "sideEffects": false,
+    "ngPackage": {
+        "dest": "../../../dist/browser/form-helper",
+        "deleteDestPath": false,
+        "lib": {
+            "entryFile": "index.ts",
+            "flatModuleFile": "commons-angular-extensions-browser-form-helper"
+        }
+    }
+}

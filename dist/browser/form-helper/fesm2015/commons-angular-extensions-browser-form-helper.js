@@ -1,85 +1,65 @@
-import {NgModule, Directive, ContentChildren, QueryList, ElementRef, Input, Optional} from "@angular/core";
-import {FormGroup, FormControlName, FormGroupDirective, NgForm, CheckboxControlValueAccessor, AbstractControl} from "@angular/forms";
+import { __decorate, __param } from 'tslib';
+import { ElementRef, Optional, Input, ContentChildren, Directive, NgModule } from '@angular/core';
+import { FormControlName, NgForm, FormGroupDirective } from '@angular/forms';
 
-@Directive({
-    selector: "[ngx-form-helper],[ngxFormHelper]",
-    exportAs: "ngxFormHelper"
-})
-export class FormHelper {
-
-    constructor(public readonly element: ElementRef<HTMLElement>, @Optional() public readonly ngForm: NgForm, @Optional() private readonly formGroupDirective: FormGroupDirective) {
+let FormHelper = class FormHelper {
+    constructor(element, ngForm, formGroupDirective) {
+        this.element = element;
+        this.ngForm = ngForm;
+        this.formGroupDirective = formGroupDirective;
     }
-
-    @Input()
-    public get readonly(): boolean {
+    get readonly() {
         return this.element.nativeElement.hasAttribute("readonly");
     }
-
-    public set readonly(readonly: boolean) {
+    set readonly(readonly) {
         if (readonly) {
             this.element.nativeElement.setAttribute("readonly", "");
-        } else {
+        }
+        else {
             this.element.nativeElement.removeAttribute("readonly");
         }
     }
-
-    public markAsReadonly() {
+    markAsReadonly() {
         this.readonly = true;
     }
-
-    @Input()
-    public get busy(): boolean {
+    get busy() {
         return this.element.nativeElement.hasAttribute("busy");
     }
-
-    public set busy(busy: boolean) {
+    set busy(busy) {
         if (busy) {
             this.element.nativeElement.setAttribute("busy", "");
-        } else {
+        }
+        else {
             this.element.nativeElement.removeAttribute("busy");
         }
     }
-
-    public markAsBusy() {
+    markAsBusy() {
         this.busy = true;
     }
-
-    @ContentChildren(FormControlName, {descendants: true})
-    protected readonly contentControls: QueryList<FormControlName>;
-
-    public formControlName(name: string): FormControlName {
-
+    formControlName(name) {
         for (let a of this.contentControls.toArray()) {
             if (a.name == name) {
                 return a;
             }
         }
     }
-
-    public get formGroup(): FormGroup {
+    get formGroup() {
         return this.formGroupDirective ? this.formGroupDirective.form : undefined;
     }
-
-    public validateAll(markAs: "touched" | "dirty" = "touched") {
-
+    validateAll(markAs = "touched") {
         if (!this.formGroupDirective) {
             return;
         }
-
         for (let controlName in this.formGroup.controls) {
             let control = this.formGroup.controls[controlName];
-
             if (markAs == "touched") {
                 control.markAsTouched();
             }
-
             if (markAs == "dirty") {
                 control.markAsDirty();
             }
-
             control.updateValueAndValidity();
         }
-        
         for (let control of this.contentControls.toArray()) {
             if (!control.valid) {
                 this.focusImpl(control);
@@ -87,9 +67,7 @@ export class FormHelper {
             }
         }
     }
-
-    private focusImpl(control: string | any, scrollIntoView: boolean = true) {
-
+    focusImpl(control, scrollIntoView = true) {
         if (typeof control == "string" && this.formGroupDirective) {
             for (let c of this.formGroupDirective.directives) {
                 if (c.name == control) {
@@ -98,42 +76,65 @@ export class FormHelper {
                 }
             }
         }
-
-        let elementToScroll: HTMLElement;
-
+        let elementToScroll;
         if (control instanceof FormControlName) {
-            let element: HTMLElement = this.element.nativeElement.querySelector("[formcontrolname=" + control.name + "]");
+            let element = this.element.nativeElement.querySelector("[formcontrolname=" + control.name + "]");
             if (element) {
                 elementToScroll = element;
                 element.focus();
             }
         }
-
         // if ("setFocus" in control) {
         //     control.setFocus();
         //     elementToScroll = control.getNativeElement().closest(".item");
         // } else if (control && typeof control.focus == "function") {
         //     control.focus();
         // }
-
         // if (!elementToScroll && control && control.nativeElement) {
         //     elementToScroll = control.nativeElement.closest(".item") || control.nativeElement;
         // }
-
         if (scrollIntoView && elementToScroll) {
             elementToScroll.scrollIntoView();
         }
     }
-
-    public focus(formControlName: string, scrollIntoView: boolean = true) {
+    focus(formControlName, scrollIntoView = true) {
         this.focusImpl(formControlName, scrollIntoView);
     }
-}
+};
+FormHelper.ctorParameters = () => [
+    { type: ElementRef },
+    { type: NgForm, decorators: [{ type: Optional }] },
+    { type: FormGroupDirective, decorators: [{ type: Optional }] }
+];
+__decorate([
+    Input()
+], FormHelper.prototype, "readonly", null);
+__decorate([
+    Input()
+], FormHelper.prototype, "busy", null);
+__decorate([
+    ContentChildren(FormControlName, { descendants: true })
+], FormHelper.prototype, "contentControls", void 0);
+FormHelper = __decorate([
+    Directive({
+        selector: "[ngx-form-helper],[ngxFormHelper]",
+        exportAs: "ngxFormHelper"
+    }),
+    __param(1, Optional()), __param(2, Optional())
+], FormHelper);
+let FormHelperModule = class FormHelperModule {
+};
+FormHelperModule = __decorate([
+    NgModule({
+        declarations: [FormHelper],
+        bootstrap: [],
+        exports: [FormHelper]
+    })
+], FormHelperModule);
 
-@NgModule({
-    declarations: [FormHelper],
-    bootstrap: [],
-    exports: [FormHelper]
-})
-export class FormHelperModule {
-}
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+export { FormHelper, FormHelperModule };
+//# sourceMappingURL=commons-angular-extensions-browser-form-helper.js.map

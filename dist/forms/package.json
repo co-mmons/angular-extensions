@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@co.mmons/angular-extensions/forms",
+  "sideEffects": false,
+  "main": "bundles/commons-angular-extensions-forms.umd.js",
+  "module": "fesm5/commons-angular-extensions-forms.js",
+  "es2015": "fesm2015/commons-angular-extensions-forms.js",
+  "esm5": "esm5/commons-angular-extensions-forms.js",
+  "esm2015": "esm2015/commons-angular-extensions-forms.js",
+  "fesm5": "fesm5/commons-angular-extensions-forms.js",
+  "fesm2015": "fesm2015/commons-angular-extensions-forms.js",
+  "typings": "commons-angular-extensions-forms.d.ts",
+  "metadata": "commons-angular-extensions-forms.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

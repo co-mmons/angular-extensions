@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@co.mmons/angular-extensions/router",
+  "sideEffects": false,
+  "main": "bundles/commons-angular-extensions-router.umd.js",
+  "module": "fesm5/commons-angular-extensions-router.js",
+  "es2015": "fesm2015/commons-angular-extensions-router.js",
+  "esm5": "esm5/commons-angular-extensions-router.js",
+  "esm2015": "esm2015/commons-angular-extensions-router.js",
+  "fesm5": "fesm5/commons-angular-extensions-router.js",
+  "fesm2015": "fesm2015/commons-angular-extensions-router.js",
+  "typings": "commons-angular-extensions-router.d.ts",
+  "metadata": "commons-angular-extensions-router.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

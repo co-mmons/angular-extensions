@@ -1,0 +1,13 @@
+{
+    "$schema": "../../node_modules/ng-packagr/package.schema.json",
+    "name": "@co.mmons/angular-extensions/router",
+    "sideEffects": false,
+    "ngPackage": {
+        "dest": "../../dist/router",
+        "deleteDestPath": false,
+        "lib": {
+            "entryFile": "index.ts",
+            "flatModuleFile": "commons-angular-extensions-router"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/ng-packagr/package.schema.json",
+  "name": "@co.mmons/angular-extensions/browser/form-helper",
+  "sideEffects": false,
+  "main": "bundles/commons-angular-extensions-browser-form-helper.umd.js",
+  "module": "fesm5/commons-angular-extensions-browser-form-helper.js",
+  "es2015": "fesm2015/commons-angular-extensions-browser-form-helper.js",
+  "esm5": "esm5/commons-angular-extensions-browser-form-helper.js",
+  "esm2015": "esm2015/commons-angular-extensions-browser-form-helper.js",
+  "fesm5": "fesm5/commons-angular-extensions-browser-form-helper.js",
+  "fesm2015": "fesm2015/commons-angular-extensions-browser-form-helper.js",
+  "typings": "commons-angular-extensions-browser-form-helper.d.ts",
+  "metadata": "commons-angular-extensions-browser-form-helper.metadata.json",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

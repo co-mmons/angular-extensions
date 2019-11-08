@@ -1,0 +1,13 @@
+{
+    "$schema": "../../node_modules/ng-packagr/package.schema.json",
+    "name": "@co.mmons/angular-extensions/forms",
+    "sideEffects": false,
+    "ngPackage": {
+        "dest": "../../dist/forms",
+        "deleteDestPath": false,
+        "lib": {
+            "entryFile": "index.ts",
+            "flatModuleFile": "commons-angular-extensions-forms"
+        }
+    }
+}
