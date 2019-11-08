@@ -33,6 +33,6 @@
   },
   "sideEffects": false,
   "intlBundleItems": [
-    {"path": "src/forms/i18n/{{LOCALE}}.json", "type": "message", "namespace": "@co.mmons/angular-extensions/forms"}
+    {"path": "./src/forms/i18n/{{LOCALE}}.json", "type": "message", "namespace": "@co.mmons/angular-extensions/forms"}
   ]
 }
