@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/forms')) :
-    typeof define === 'function' && define.amd ? define('@co.mmons/angular-extensions/forms', ['exports', '@angular/forms'], factory) :
-    (global = global || self, factory((global.co = global.co || {}, global.co.mmons = global.co.mmons || {}, global.co.mmons['angular-extensions'] = global.co.mmons['angular-extensions'] || {}, global.co.mmons['angular-extensions'].forms = {}), global.ng.forms));
-}(this, (function (exports, forms) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/forms'), require('@angular/core'), require('@co.mmons/js-intl')) :
+    typeof define === 'function' && define.amd ? define('@co.mmons/angular-extensions/forms', ['exports', '@angular/forms', '@angular/core', '@co.mmons/js-intl'], factory) :
+    (global = global || self, factory((global.co = global.co || {}, global.co.mmons = global.co.mmons || {}, global.co.mmons['angular-extensions'] = global.co.mmons['angular-extensions'] || {}, global.co.mmons['angular-extensions'].forms = {}), global.ng.forms, global.ng.core, global.jsIntl));
+}(this, (function (exports, forms, core, jsIntl) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -278,7 +278,53 @@
         }
     }
 
+    var urlValidatorRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/i;
+    var urlValidatorProvider = {
+        provide: forms.NG_VALIDATORS,
+        useExisting: core.forwardRef(function () { return UrlValidator; }),
+        multi: true
+    };
+    var UrlValidator = /** @class */ (function () {
+        function UrlValidator() {
+        }
+        UrlValidator_1 = UrlValidator;
+        UrlValidator.validate = function (control) {
+            var value = control.value;
+            if (urlValidatorRegex.test(value)) {
+                return undefined;
+            }
+            return {
+                invalidUrl: new jsIntl.MessageRef("@co.mmons/angular-extensions/forms", "invalidUrlError")
+            };
+        };
+        UrlValidator.prototype.validate = function (c) {
+            return UrlValidator_1.validate(c);
+        };
+        var UrlValidator_1;
+        UrlValidator = UrlValidator_1 = __decorate([
+            core.Directive({
+                selector: '[url][formControlName],[url][formControl],[url][ngModel]',
+                providers: [urlValidatorProvider]
+            })
+        ], UrlValidator);
+        return UrlValidator;
+    }());
+    var UrlValidatorModule = /** @class */ (function () {
+        function UrlValidatorModule() {
+        }
+        UrlValidatorModule = __decorate([
+            core.NgModule({
+                declarations: [UrlValidator],
+                exports: [UrlValidator]
+            })
+        ], UrlValidatorModule);
+        return UrlValidatorModule;
+    }());
+
+    exports.UrlValidator = UrlValidator;
+    exports.UrlValidatorModule = UrlValidatorModule;
     exports.updateValueAndValidity = updateValueAndValidity;
+    exports.urlValidatorProvider = urlValidatorProvider;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

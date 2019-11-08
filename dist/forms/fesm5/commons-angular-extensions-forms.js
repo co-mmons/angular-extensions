@@ -1,5 +1,7 @@
-import { __values } from 'tslib';
-import { AbstractControl, FormGroup, FormArray } from '@angular/forms';
+import { __values, __decorate } from 'tslib';
+import { AbstractControl, FormGroup, FormArray, NG_VALIDATORS } from '@angular/forms';
+import { forwardRef, Directive, NgModule } from '@angular/core';
+import { MessageRef } from '@co.mmons/js-intl';
 
 function updateValueAndValidity(controlOrControls, opts) {
     var e_1, _a, e_2, _b, e_3, _c;
@@ -78,9 +80,52 @@ function updateValueAndValidity(controlOrControls, opts) {
     }
 }
 
+var urlValidatorRegex = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/i;
+var urlValidatorProvider = {
+    provide: NG_VALIDATORS,
+    useExisting: forwardRef(function () { return UrlValidator; }),
+    multi: true
+};
+var UrlValidator = /** @class */ (function () {
+    function UrlValidator() {
+    }
+    UrlValidator_1 = UrlValidator;
+    UrlValidator.validate = function (control) {
+        var value = control.value;
+        if (urlValidatorRegex.test(value)) {
+            return undefined;
+        }
+        return {
+            invalidUrl: new MessageRef("@co.mmons/angular-extensions/forms", "invalidUrlError")
+        };
+    };
+    UrlValidator.prototype.validate = function (c) {
+        return UrlValidator_1.validate(c);
+    };
+    var UrlValidator_1;
+    UrlValidator = UrlValidator_1 = __decorate([
+        Directive({
+            selector: '[url][formControlName],[url][formControl],[url][ngModel]',
+            providers: [urlValidatorProvider]
+        })
+    ], UrlValidator);
+    return UrlValidator;
+}());
+var UrlValidatorModule = /** @class */ (function () {
+    function UrlValidatorModule() {
+    }
+    UrlValidatorModule = __decorate([
+        NgModule({
+            declarations: [UrlValidator],
+            exports: [UrlValidator]
+        })
+    ], UrlValidatorModule);
+    return UrlValidatorModule;
+}());
+
 /**
  * Generated bundle index. Do not edit.
  */
 
-export { updateValueAndValidity };
+export { UrlValidator, UrlValidatorModule, updateValueAndValidity, urlValidatorProvider };
 //# sourceMappingURL=commons-angular-extensions-forms.js.map
