@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Pipe, PipeTransform, Directive, TemplateRef, ViewContainerRef, Input } from "@angular/core";
 let MatchMediaPipe = class MatchMediaPipe {
     transform(query) {
@@ -18,7 +18,7 @@ let MatchMediaPipe = class MatchMediaPipe {
         this.destroy;
     }
 };
-MatchMediaPipe = tslib_1.__decorate([
+MatchMediaPipe = __decorate([
     Pipe({
         name: "matchMedia",
         pure: false
@@ -44,10 +44,10 @@ IfMatchMediaDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-tslib_1.__decorate([
+__decorate([
     Input()
 ], IfMatchMediaDirective.prototype, "ifMatchMedia", null);
-IfMatchMediaDirective = tslib_1.__decorate([
+IfMatchMediaDirective = __decorate([
     Directive({
         selector: "[ifMatchMedia]"
     })

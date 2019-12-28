@@ -11,7 +11,7 @@
   "fesm2015": "fesm2015/commons-angular-extensions-browser-match-media.js",
   "typings": "commons-angular-extensions-browser-match-media.d.ts",
   "metadata": "commons-angular-extensions-browser-match-media.metadata.json",
-  "dependencies": {
-    "tslib": "^1.9.0"
+  "peerDependencies": {
+    "tslib": "^1.10.0"
   }
 }

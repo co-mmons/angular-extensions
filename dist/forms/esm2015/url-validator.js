@@ -1,5 +1,5 @@
-import * as tslib_1 from "tslib";
 var UrlValidator_1;
+import { __decorate } from "tslib";
 import { Directive, forwardRef, NgModule } from "@angular/core";
 import { NG_VALIDATORS } from "@angular/forms";
 import { MessageRef } from "@co.mmons/js-intl";
@@ -23,7 +23,7 @@ let UrlValidator = UrlValidator_1 = class UrlValidator {
         return UrlValidator_1.validate(c);
     }
 };
-UrlValidator = UrlValidator_1 = tslib_1.__decorate([
+UrlValidator = UrlValidator_1 = __decorate([
     Directive({
         selector: '[url][formControlName],[url][formControl],[url][ngModel]',
         providers: [urlValidatorProvider]
@@ -32,7 +32,7 @@ UrlValidator = UrlValidator_1 = tslib_1.__decorate([
 export { UrlValidator };
 let UrlValidatorModule = class UrlValidatorModule {
 };
-UrlValidatorModule = tslib_1.__decorate([
+UrlValidatorModule = __decorate([
     NgModule({
         declarations: [UrlValidator],
         exports: [UrlValidator]

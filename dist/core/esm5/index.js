@@ -1,11 +1,11 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { NgModule } from "@angular/core";
 import { ElementRefExport } from "./element-ref-export";
 export { ElementRefExport } from "./element-ref-export";
 var CoreExtensionsModule = /** @class */ (function () {
     function CoreExtensionsModule() {
     }
-    CoreExtensionsModule = tslib_1.__decorate([
+    CoreExtensionsModule = __decorate([
         NgModule({
             declarations: [ElementRefExport],
             exports: [ElementRefExport]

@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Pipe } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 let SafeHtmlPipe = class SafeHtmlPipe {
@@ -12,7 +12,7 @@ let SafeHtmlPipe = class SafeHtmlPipe {
 SafeHtmlPipe.ctorParameters = () => [
     { type: DomSanitizer }
 ];
-SafeHtmlPipe = tslib_1.__decorate([
+SafeHtmlPipe = __decorate([
     Pipe({
         name: "safeHtml"
     })

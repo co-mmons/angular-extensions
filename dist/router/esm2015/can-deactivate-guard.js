@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Injectable } from "@angular/core";
 let CanDeactivateGuard = class CanDeactivateGuard {
     constructor() {
@@ -10,7 +10,7 @@ let CanDeactivateGuard = class CanDeactivateGuard {
         return true;
     }
 };
-CanDeactivateGuard = tslib_1.__decorate([
+CanDeactivateGuard = __decorate([
     Injectable()
 ], CanDeactivateGuard);
 export { CanDeactivateGuard };

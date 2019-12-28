@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Pipe, PipeTransform, Directive, TemplateRef, ViewContainerRef, Input } from "@angular/core";
 import { ScreenSizeMinWidth } from "./screen-size";
 import { MatchMediaPipe } from "./match-media";
@@ -21,7 +21,7 @@ let MatchWidthGreaterPipe = class MatchWidthGreaterPipe extends MatchMediaPipe {
         return buildMediaQuery("gte", query);
     }
 };
-MatchWidthGreaterPipe = tslib_1.__decorate([
+MatchWidthGreaterPipe = __decorate([
     Pipe({
         name: "matchGreaterWidth",
         pure: false
@@ -33,7 +33,7 @@ let MatchLesserWidthPipe = class MatchLesserWidthPipe extends MatchMediaPipe {
         return buildMediaQuery("lte", query);
     }
 };
-MatchLesserWidthPipe = tslib_1.__decorate([
+MatchLesserWidthPipe = __decorate([
     Pipe({
         name: "matchLesserWidth",
         pure: false
@@ -59,10 +59,10 @@ IfMatchGreaterWidthDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-tslib_1.__decorate([
+__decorate([
     Input()
 ], IfMatchGreaterWidthDirective.prototype, "ifMatchGreaterWidth", null);
-IfMatchGreaterWidthDirective = tslib_1.__decorate([
+IfMatchGreaterWidthDirective = __decorate([
     Directive({
         selector: "[ifMatchGreaterWidth]"
     })
@@ -87,10 +87,10 @@ IfMatchLesserWidthDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-tslib_1.__decorate([
+__decorate([
     Input()
 ], IfMatchLesserWidthDirective.prototype, "ifMatchLesserWidth", null);
-IfMatchLesserWidthDirective = tslib_1.__decorate([
+IfMatchLesserWidthDirective = __decorate([
     Directive({
         selector: "[ifMatchLesserWidth]"
     })

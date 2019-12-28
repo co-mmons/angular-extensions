@@ -12,24 +12,24 @@
     "install": "node-utils-npm-install-dist"
   },
   "peerDependencies": {
-    "@angular/common": "^8.0.3",
-    "@angular/compiler": "^8.0.3",
-    "@angular/compiler-cli": "^8.0.3",
-    "@angular/core": "^8.0.3",
-    "@angular/forms": "^8.0.3",
-    "@angular/platform-browser": "^8.0.3",
-    "@angular/router": "^8.0.3",
+    "@angular/common": "^9.0.0-rc.7",
+    "@angular/compiler": "^9.0.0-rc.7",
+    "@angular/compiler-cli": "^9.0.0-rc.7",
+    "@angular/core": "^9.0.0-rc.7",
+    "@angular/forms": "^9.0.0-rc.7",
+    "@angular/platform-browser": "^9.0.0-rc.7",
+    "@angular/router": "^9.0.0-rc.7",
     "@co.mmons/js-intl": "git+https://github.com/co-mmons/js-intl.git",
     "@co.mmons/js-utils": "git+https://github.com/co-mmons/js-utils.git",
     "rxjs": "^6.5.2",
-    "zone.js": "^0.9.1"
+    "zone.js": "^0.10.2"
   },
   "devDependencies": {
     "@co.mmons/node-utils": "git+https://github.com/co-mmons/node-utils.git",
     "@types/yargs": "^13.0.3",
     "bignumber.js": "^9.0.0",
-    "ng-packagr": "^5.7.1",
-    "typescript": "~3.4.0"
+    "ng-packagr": "^9.0.0-rc.3",
+    "typescript": "~3.6.0"
   },
   "sideEffects": false
 }

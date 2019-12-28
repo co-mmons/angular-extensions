@@ -236,7 +236,7 @@
                 }
                 if (opts && opts.ommit) {
                     try {
-                        for (var _f = __values(opts.ommit), _g = _f.next(); !_g.done; _g = _f.next()) {
+                        for (var _f = (e_3 = void 0, __values(opts.ommit)), _g = _f.next(); !_g.done; _g = _f.next()) {
                             var c = _g.value;
                             if (c === control) {
                                 continue CONTROLS;

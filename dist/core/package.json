@@ -11,7 +11,7 @@
   "fesm2015": "fesm2015/commons-angular-extensions-core.js",
   "typings": "commons-angular-extensions-core.d.ts",
   "metadata": "commons-angular-extensions-core.metadata.json",
-  "dependencies": {
-    "tslib": "^1.9.0"
+  "peerDependencies": {
+    "tslib": "^1.10.0"
   }
 }

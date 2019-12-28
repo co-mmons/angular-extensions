@@ -1,4 +1,4 @@
-import * as tslib_1 from "tslib";
+import { __decorate } from "tslib";
 import { Directive, ElementRef } from "@angular/core";
 let ElementRefExport = class ElementRefExport extends ElementRef {
     constructor(element) {
@@ -8,7 +8,7 @@ let ElementRefExport = class ElementRefExport extends ElementRef {
 ElementRefExport.ctorParameters = () => [
     { type: ElementRef }
 ];
-ElementRefExport = tslib_1.__decorate([
+ElementRefExport = __decorate([
     Directive({
         selector: "[element-ref], [elementRef]",
         exportAs: "ElementRef"
