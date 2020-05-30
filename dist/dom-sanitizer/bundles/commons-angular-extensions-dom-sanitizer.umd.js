@@ -219,6 +219,42 @@
         return SafeHtmlPipe;
     }());
 
+    var SafeStylePipe = /** @class */ (function () {
+        function SafeStylePipe(sanitizer) {
+            this.sanitizer = sanitizer;
+        }
+        SafeStylePipe.prototype.transform = function (style) {
+            return this.sanitizer.bypassSecurityTrustStyle(style);
+        };
+        SafeStylePipe.ctorParameters = function () { return [
+            { type: platformBrowser.DomSanitizer }
+        ]; };
+        SafeStylePipe = __decorate([
+            core.Pipe({
+                name: "safeStyle"
+            })
+        ], SafeStylePipe);
+        return SafeStylePipe;
+    }());
+
+    var SafeStyleUrlPipe = /** @class */ (function () {
+        function SafeStyleUrlPipe(sanitizer) {
+            this.sanitizer = sanitizer;
+        }
+        SafeStyleUrlPipe.prototype.transform = function (url) {
+            return this.sanitizer.bypassSecurityTrustStyle("url(" + url + ")");
+        };
+        SafeStyleUrlPipe.ctorParameters = function () { return [
+            { type: platformBrowser.DomSanitizer }
+        ]; };
+        SafeStyleUrlPipe = __decorate([
+            core.Pipe({
+                name: "safeStyleUrl"
+            })
+        ], SafeStyleUrlPipe);
+        return SafeStyleUrlPipe;
+    }());
+
     var SafeUrlPipe = /** @class */ (function () {
         function SafeUrlPipe(sanitizer) {
             this.sanitizer = sanitizer;
@@ -242,8 +278,8 @@
         }
         DomSanitizerModule = __decorate([
             core.NgModule({
-                declarations: [SafeHtmlPipe, SafeUrlPipe],
-                exports: [SafeHtmlPipe, SafeUrlPipe]
+                declarations: [SafeHtmlPipe, SafeUrlPipe, SafeStylePipe, SafeStyleUrlPipe],
+                exports: [SafeHtmlPipe, SafeUrlPipe, SafeStylePipe, SafeStyleUrlPipe]
             })
         ], DomSanitizerModule);
         return DomSanitizerModule;
@@ -252,6 +288,8 @@
     exports.DomSanitizerModule = DomSanitizerModule;
     exports.ɵa = SafeHtmlPipe;
     exports.ɵb = SafeUrlPipe;
+    exports.ɵc = SafeStylePipe;
+    exports.ɵd = SafeStyleUrlPipe;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

@@ -19,6 +19,40 @@ SafeHtmlPipe = __decorate([
     })
 ], SafeHtmlPipe);
 
+let SafeStylePipe = class SafeStylePipe {
+    constructor(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    transform(style) {
+        return this.sanitizer.bypassSecurityTrustStyle(style);
+    }
+};
+SafeStylePipe.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+SafeStylePipe = __decorate([
+    Pipe({
+        name: "safeStyle"
+    })
+], SafeStylePipe);
+
+let SafeStyleUrlPipe = class SafeStyleUrlPipe {
+    constructor(sanitizer) {
+        this.sanitizer = sanitizer;
+    }
+    transform(url) {
+        return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+    }
+};
+SafeStyleUrlPipe.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+SafeStyleUrlPipe = __decorate([
+    Pipe({
+        name: "safeStyleUrl"
+    })
+], SafeStyleUrlPipe);
+
 let SafeUrlPipe = class SafeUrlPipe {
     constructor(sanitizer) {
         this.sanitizer = sanitizer;
@@ -40,8 +74,8 @@ let DomSanitizerModule = class DomSanitizerModule {
 };
 DomSanitizerModule = __decorate([
     NgModule({
-        declarations: [SafeHtmlPipe, SafeUrlPipe],
-        exports: [SafeHtmlPipe, SafeUrlPipe]
+        declarations: [SafeHtmlPipe, SafeUrlPipe, SafeStylePipe, SafeStyleUrlPipe],
+        exports: [SafeHtmlPipe, SafeUrlPipe, SafeStylePipe, SafeStyleUrlPipe]
     })
 ], DomSanitizerModule);
 
@@ -49,5 +83,5 @@ DomSanitizerModule = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { DomSanitizerModule, SafeHtmlPipe as ɵa, SafeUrlPipe as ɵb };
+export { DomSanitizerModule, SafeHtmlPipe as ɵa, SafeUrlPipe as ɵb, SafeStylePipe as ɵc, SafeStyleUrlPipe as ɵd };
 //# sourceMappingURL=commons-angular-extensions-dom-sanitizer.js.map
