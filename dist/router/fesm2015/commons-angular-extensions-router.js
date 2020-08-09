@@ -1,7 +1,6 @@
-import { __decorate } from 'tslib';
 import { Injectable } from '@angular/core';
 
-let CanDeactivateGuard = class CanDeactivateGuard {
+class CanDeactivateGuard {
     constructor() {
     }
     canDeactivate(component, currentRoute, currentState, nextState) {
@@ -10,10 +9,11 @@ let CanDeactivateGuard = class CanDeactivateGuard {
         }
         return true;
     }
-};
-CanDeactivateGuard = __decorate([
-    Injectable()
-], CanDeactivateGuard);
+}
+CanDeactivateGuard.decorators = [
+    { type: Injectable }
+];
+CanDeactivateGuard.ctorParameters = () => [];
 
 /**
  * Generated bundle index. Do not edit.

@@ -1,29 +1,28 @@
-import { __decorate } from 'tslib';
 import { ElementRef, Directive, NgModule } from '@angular/core';
 
-let ElementRefExport = class ElementRefExport extends ElementRef {
+class ElementRefExport extends ElementRef {
     constructor(element) {
         super(element.nativeElement);
     }
-};
+}
+ElementRefExport.decorators = [
+    { type: Directive, args: [{
+                selector: "[element-ref], [elementRef]",
+                exportAs: "ElementRef"
+            },] }
+];
 ElementRefExport.ctorParameters = () => [
     { type: ElementRef }
 ];
-ElementRefExport = __decorate([
-    Directive({
-        selector: "[element-ref], [elementRef]",
-        exportAs: "ElementRef"
-    })
-], ElementRefExport);
 
-let CoreExtensionsModule = class CoreExtensionsModule {
-};
-CoreExtensionsModule = __decorate([
-    NgModule({
-        declarations: [ElementRefExport],
-        exports: [ElementRefExport]
-    })
-], CoreExtensionsModule);
+class CoreExtensionsModule {
+}
+CoreExtensionsModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [ElementRefExport],
+                exports: [ElementRefExport]
+            },] }
+];
 
 /**
  * Generated bundle index. Do not edit.

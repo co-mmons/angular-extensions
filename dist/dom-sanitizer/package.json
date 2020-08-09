@@ -3,15 +3,13 @@
   "name": "@co.mmons/angular-extensions/dom-sanitizer",
   "sideEffects": false,
   "main": "bundles/commons-angular-extensions-dom-sanitizer.umd.js",
-  "module": "fesm5/commons-angular-extensions-dom-sanitizer.js",
+  "module": "fesm2015/commons-angular-extensions-dom-sanitizer.js",
   "es2015": "fesm2015/commons-angular-extensions-dom-sanitizer.js",
-  "esm5": "esm5/commons-angular-extensions-dom-sanitizer.js",
   "esm2015": "esm2015/commons-angular-extensions-dom-sanitizer.js",
-  "fesm5": "fesm5/commons-angular-extensions-dom-sanitizer.js",
   "fesm2015": "fesm2015/commons-angular-extensions-dom-sanitizer.js",
   "typings": "commons-angular-extensions-dom-sanitizer.d.ts",
   "metadata": "commons-angular-extensions-dom-sanitizer.metadata.json",
-  "peerDependencies": {
-    "tslib": "^1.10.0"
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }

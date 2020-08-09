@@ -11,5 +11,5 @@ export declare class IfMatchMediaDirective {
     private template;
     private viewContainer;
     constructor(template: TemplateRef<any>, viewContainer: ViewContainerRef);
-    ifMatchMedia: string;
+    set ifMatchMedia(query: string);
 }

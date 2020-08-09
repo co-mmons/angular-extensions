@@ -1,8 +1,7 @@
-import { __decorate, __param } from 'tslib';
-import { ElementRef, Optional, Input, ContentChildren, Directive, NgModule } from '@angular/core';
+import { Directive, ElementRef, Optional, Input, ContentChildren, NgModule } from '@angular/core';
 import { FormControlName, NgForm, FormGroupDirective } from '@angular/forms';
 
-let FormHelper = class FormHelper {
+class FormHelper {
     constructor(element, ngForm, formGroupDirective) {
         this.element = element;
         this.ngForm = ngForm;
@@ -100,37 +99,32 @@ let FormHelper = class FormHelper {
     focus(formControlName, scrollIntoView = true) {
         this.focusImpl(formControlName, scrollIntoView);
     }
-};
+}
+FormHelper.decorators = [
+    { type: Directive, args: [{
+                selector: "[ngx-form-helper],[ngxFormHelper]",
+                exportAs: "ngxFormHelper"
+            },] }
+];
 FormHelper.ctorParameters = () => [
     { type: ElementRef },
     { type: NgForm, decorators: [{ type: Optional }] },
     { type: FormGroupDirective, decorators: [{ type: Optional }] }
 ];
-__decorate([
-    Input()
-], FormHelper.prototype, "readonly", null);
-__decorate([
-    Input()
-], FormHelper.prototype, "busy", null);
-__decorate([
-    ContentChildren(FormControlName, { descendants: true })
-], FormHelper.prototype, "contentControls", void 0);
-FormHelper = __decorate([
-    Directive({
-        selector: "[ngx-form-helper],[ngxFormHelper]",
-        exportAs: "ngxFormHelper"
-    }),
-    __param(1, Optional()), __param(2, Optional())
-], FormHelper);
-let FormHelperModule = class FormHelperModule {
+FormHelper.propDecorators = {
+    readonly: [{ type: Input }],
+    busy: [{ type: Input }],
+    contentControls: [{ type: ContentChildren, args: [FormControlName, { descendants: true },] }]
 };
-FormHelperModule = __decorate([
-    NgModule({
-        declarations: [FormHelper],
-        bootstrap: [],
-        exports: [FormHelper]
-    })
-], FormHelperModule);
+class FormHelperModule {
+}
+FormHelperModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [FormHelper],
+                bootstrap: [],
+                exports: [FormHelper]
+            },] }
+];
 
 /**
  * Generated bundle index. Do not edit.

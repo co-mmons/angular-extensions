@@ -1,7 +1,6 @@
-import { __decorate } from 'tslib';
-import { Pipe, TemplateRef, ViewContainerRef, Input, Directive, NgModule } from '@angular/core';
+import { Pipe, Directive, TemplateRef, ViewContainerRef, Input, NgModule } from '@angular/core';
 
-let MatchMediaPipe = class MatchMediaPipe {
+class MatchMediaPipe {
     transform(query) {
         if (query != this.query) {
             this.destroy();
@@ -18,14 +17,14 @@ let MatchMediaPipe = class MatchMediaPipe {
     ngOnDestroy() {
         this.destroy;
     }
-};
-MatchMediaPipe = __decorate([
-    Pipe({
-        name: "matchMedia",
-        pure: false
-    })
-], MatchMediaPipe);
-let IfMatchMediaDirective = class IfMatchMediaDirective {
+}
+MatchMediaPipe.decorators = [
+    { type: Pipe, args: [{
+                name: "matchMedia",
+                pure: false
+            },] }
+];
+class IfMatchMediaDirective {
     constructor(template, viewContainer) {
         this.template = template;
         this.viewContainer = viewContainer;
@@ -39,19 +38,19 @@ let IfMatchMediaDirective = class IfMatchMediaDirective {
             this.viewContainer.clear();
         }
     }
-};
+}
+IfMatchMediaDirective.decorators = [
+    { type: Directive, args: [{
+                selector: "[ifMatchMedia]"
+            },] }
+];
 IfMatchMediaDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-__decorate([
-    Input()
-], IfMatchMediaDirective.prototype, "ifMatchMedia", null);
-IfMatchMediaDirective = __decorate([
-    Directive({
-        selector: "[ifMatchMedia]"
-    })
-], IfMatchMediaDirective);
+IfMatchMediaDirective.propDecorators = {
+    ifMatchMedia: [{ type: Input }]
+};
 
 class ScreenSizeMinWidth {
 }
@@ -83,29 +82,29 @@ function buildMediaQuery(comparison, input) {
     }
     return `(${comparison == "gte" ? "min-width" : "max-width"}: ${size}px)`;
 }
-let MatchWidthGreaterPipe = class MatchWidthGreaterPipe extends MatchMediaPipe {
+class MatchWidthGreaterPipe extends MatchMediaPipe {
     prepareQuery(query) {
         return buildMediaQuery("gte", query);
     }
-};
-MatchWidthGreaterPipe = __decorate([
-    Pipe({
-        name: "matchGreaterWidth",
-        pure: false
-    })
-], MatchWidthGreaterPipe);
-let MatchLesserWidthPipe = class MatchLesserWidthPipe extends MatchMediaPipe {
+}
+MatchWidthGreaterPipe.decorators = [
+    { type: Pipe, args: [{
+                name: "matchGreaterWidth",
+                pure: false
+            },] }
+];
+class MatchLesserWidthPipe extends MatchMediaPipe {
     prepareQuery(query) {
         return buildMediaQuery("lte", query);
     }
-};
-MatchLesserWidthPipe = __decorate([
-    Pipe({
-        name: "matchLesserWidth",
-        pure: false
-    })
-], MatchLesserWidthPipe);
-let IfMatchGreaterWidthDirective = class IfMatchGreaterWidthDirective {
+}
+MatchLesserWidthPipe.decorators = [
+    { type: Pipe, args: [{
+                name: "matchLesserWidth",
+                pure: false
+            },] }
+];
+class IfMatchGreaterWidthDirective {
     constructor(template, viewContainer) {
         this.template = template;
         this.viewContainer = viewContainer;
@@ -119,20 +118,20 @@ let IfMatchGreaterWidthDirective = class IfMatchGreaterWidthDirective {
             this.viewContainer.clear();
         }
     }
-};
+}
+IfMatchGreaterWidthDirective.decorators = [
+    { type: Directive, args: [{
+                selector: "[ifMatchGreaterWidth]"
+            },] }
+];
 IfMatchGreaterWidthDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-__decorate([
-    Input()
-], IfMatchGreaterWidthDirective.prototype, "ifMatchGreaterWidth", null);
-IfMatchGreaterWidthDirective = __decorate([
-    Directive({
-        selector: "[ifMatchGreaterWidth]"
-    })
-], IfMatchGreaterWidthDirective);
-let IfMatchLesserWidthDirective = class IfMatchLesserWidthDirective {
+IfMatchGreaterWidthDirective.propDecorators = {
+    ifMatchGreaterWidth: [{ type: Input }]
+};
+class IfMatchLesserWidthDirective {
     constructor(template, viewContainer) {
         this.template = template;
         this.viewContainer = viewContainer;
@@ -146,28 +145,28 @@ let IfMatchLesserWidthDirective = class IfMatchLesserWidthDirective {
             this.viewContainer.clear();
         }
     }
-};
+}
+IfMatchLesserWidthDirective.decorators = [
+    { type: Directive, args: [{
+                selector: "[ifMatchLesserWidth]"
+            },] }
+];
 IfMatchLesserWidthDirective.ctorParameters = () => [
     { type: TemplateRef },
     { type: ViewContainerRef }
 ];
-__decorate([
-    Input()
-], IfMatchLesserWidthDirective.prototype, "ifMatchLesserWidth", null);
-IfMatchLesserWidthDirective = __decorate([
-    Directive({
-        selector: "[ifMatchLesserWidth]"
-    })
-], IfMatchLesserWidthDirective);
-
-let MatchMediaModule = class MatchMediaModule {
+IfMatchLesserWidthDirective.propDecorators = {
+    ifMatchLesserWidth: [{ type: Input }]
 };
-MatchMediaModule = __decorate([
-    NgModule({
-        declarations: [MatchMediaPipe, IfMatchMediaDirective, MatchWidthGreaterPipe, MatchLesserWidthPipe, IfMatchGreaterWidthDirective, IfMatchLesserWidthDirective],
-        exports: [MatchMediaPipe, IfMatchMediaDirective, MatchWidthGreaterPipe, MatchLesserWidthPipe, IfMatchGreaterWidthDirective, IfMatchLesserWidthDirective]
-    })
-], MatchMediaModule);
+
+class MatchMediaModule {
+}
+MatchMediaModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [MatchMediaPipe, IfMatchMediaDirective, MatchWidthGreaterPipe, MatchLesserWidthPipe, IfMatchGreaterWidthDirective, IfMatchLesserWidthDirective],
+                exports: [MatchMediaPipe, IfMatchMediaDirective, MatchWidthGreaterPipe, MatchLesserWidthPipe, IfMatchGreaterWidthDirective, IfMatchLesserWidthDirective]
+            },] }
+];
 
 /**
  * Generated bundle index. Do not edit.

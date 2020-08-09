@@ -10,11 +10,11 @@ export declare class IfMatchGreaterWidthDirective {
     private template;
     private viewContainer;
     constructor(template: TemplateRef<any>, viewContainer: ViewContainerRef);
-    ifMatchGreaterWidth: string;
+    set ifMatchGreaterWidth(minWidth: string);
 }
 export declare class IfMatchLesserWidthDirective {
     private template;
     private viewContainer;
     constructor(template: TemplateRef<any>, viewContainer: ViewContainerRef);
-    ifMatchLesserWidth: string;
+    set ifMatchLesserWidth(maxWidth: string);
 }

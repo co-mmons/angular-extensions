@@ -9,15 +9,13 @@
     }
   ],
   "main": "bundles/commons-angular-extensions-forms.umd.js",
-  "module": "fesm5/commons-angular-extensions-forms.js",
+  "module": "fesm2015/commons-angular-extensions-forms.js",
   "es2015": "fesm2015/commons-angular-extensions-forms.js",
-  "esm5": "esm5/commons-angular-extensions-forms.js",
   "esm2015": "esm2015/commons-angular-extensions-forms.js",
-  "fesm5": "fesm5/commons-angular-extensions-forms.js",
   "fesm2015": "fesm2015/commons-angular-extensions-forms.js",
   "typings": "commons-angular-extensions-forms.d.ts",
   "metadata": "commons-angular-extensions-forms.metadata.json",
-  "peerDependencies": {
-    "tslib": "^1.10.0"
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
